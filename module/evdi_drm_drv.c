@@ -147,7 +147,10 @@ static struct drm_driver driver = {
 
 	.name = DRIVER_NAME,
 	.desc = DRIVER_DESC,
+#if KERNEL_VERSION(6, 13, 0) <= LINUX_VERSION_CODE || defined(EL8)
+#else
 	.date = DRIVER_DATE,
+#endif
 	.major = DRIVER_MAJOR,
 	.minor = DRIVER_MINOR,
 	.patchlevel = DRIVER_PATCH,
